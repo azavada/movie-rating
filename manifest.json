@@ -3,7 +3,6 @@
     "name": "imdb movie rating",
     "description": "This extension shows a Google Image search result for the current page",
     "version": "1.0",
-
     "background": {
         "scripts": [
             "jquery-2.2.2.min.js",
@@ -11,12 +10,23 @@
             "main.js"
         ]
     },
-
     "permissions": [
         "tabs",
         "bookmarks",
         "http://*/**",
         "https://*/**",
         "unlimitedStorage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://toloka.to/f*"
+            ],
+            "js": [
+                "jquery-2.2.2.min.js",
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
     ]
 }
